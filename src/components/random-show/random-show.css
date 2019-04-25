@@ -1,0 +1,49 @@
+.random-show {
+    display: block;
+    padding: 1rem;
+    background: #00bc8c;
+    margin: 1em auto
+  }
+.random-container {
+  width: 30em;
+  display: block;
+  margin: 0 auto;
+  
+}
+  .random-show .planet-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-right: 1rem;
+  }
+  h4 {
+    text-align: center;
+    line-height: 1.5em;
+    margin: 0;
+  }
+  .random-show .list-group {
+    margin: 1rem 0 0 1rem;
+  }
+  
+  .random-show .list-group-item {
+    padding: .25rem;
+  }
+  
+  .random-show .list-group-item .term {
+    margin-right: .5rem;
+  }
+  .show-image {
+    display: inline-block;
+    vertical-align: top;
+    
+  }
+  .show-image img {
+    width: 150px;
+  }
+
+  .random-show-desc {
+    display: inline-block;
+    width: 20em;
+    height:  15em;
+  overflow: hidden;
+  }
