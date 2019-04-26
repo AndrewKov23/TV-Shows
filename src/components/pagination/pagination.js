@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './pagination.css';
+
+import { filterShow } from '../../actions/actions';
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
@@ -13,17 +17,15 @@ const range = (from, to) => {
   }
 
   return range;
-}
+};
 
-// probably can be rewritten into the stateless functional component
 class Pagination extends Component {
-
   fetchPageNumbers = () => {
     const totalPages = parseInt(this.props.totalPages, 10);
     const currentPage = parseInt(this.props.page, 10);
     const pageNeighbors = 2;
 
-    const totalNumbers = (pageNeighbors * 2) + 3;
+    const totalNumbers = pageNeighbors * 2 + 3;
     const totalBlocks = totalNumbers + 2;
 
     if (totalPages > totalBlocks) {
@@ -32,24 +34,23 @@ class Pagination extends Component {
       let pages = range(startPage, endPage);
 
       const hasLeftSpill = startPage > 2;
-      const hasRightSpill = (totalPages - endPage) > 1;
+      const hasRightSpill = totalPages - endPage > 1;
       const spillOffset = totalNumbers - (pages.length + 1);
 
-
       switch (true) {
-        case (hasLeftSpill && !hasRightSpill): {
+        case hasLeftSpill && !hasRightSpill: {
           const extraPages = range(startPage - spillOffset, startPage - 1);
           pages = [LEFT_PAGE, ...extraPages, ...pages];
           break;
         }
 
-        case (!hasLeftSpill && hasRightSpill): {
+        case !hasLeftSpill && hasRightSpill: {
           const extraPages = range(endPage + 1, endPage + spillOffset);
           pages = [...pages, ...extraPages, RIGHT_PAGE];
           break;
         }
 
-        case (hasLeftSpill && hasRightSpill):
+        case hasLeftSpill && hasRightSpill:
         default: {
           pages = [LEFT_PAGE, ...pages, RIGHT_PAGE];
           break;
@@ -59,32 +60,28 @@ class Pagination extends Component {
     }
 
     return range(1, totalPages);
-  }
+  };
 
   gotoPage = page => {
-    const queryContent = {
-      page
-    };
-    this.props.sendQuery(queryContent);
-  }
+    this.props.filterShow(this.props.pageType, page);
+  };
 
   handleClick = page => e => {
     e.preventDefault();
     this.gotoPage(page);
-  }
+  };
 
   handleMoveLeft = e => {
     e.preventDefault();
     const currentPage = parseInt(this.props.page, 10);
-    // (this.pageNeighbors * 2) - 1
     this.gotoPage(currentPage - 3);
-  }
+  };
 
   handleMoveRight = e => {
     e.preventDefault();
     const currentPage = parseInt(this.props.page, 10);
     this.gotoPage(currentPage + 3);
-  }
+  };
 
   render() {
     if (this.totalPages === 1) return null;
@@ -92,33 +89,52 @@ class Pagination extends Component {
     const currentPage = parseInt(this.props.page, 10);
     return (
       <div className="pagination-container">
-        <p>Page {this.props.page} out of {this.props.totalPages}</p>
+        <p>
+          Page {this.props.page} out of {this.props.totalPages}
+        </p>
         <nav aria-label="Pagination">
           <ul className="pagination">
-            { pages.map((page, index) => {
-              if (page === LEFT_PAGE) return (
-                <li key={index} className="page-item">
-                  <button className="page-link" href="#" aria-label="Previous" onClick={this.handleMoveLeft}>
-                    <span aria-hidden="true">&laquo;</span>
-                  </button>
-                </li>
-              );
+            {pages.map((page, index) => {
+              if (page === LEFT_PAGE)
+                return (
+                  <li key={index} className="page-item">
+                    <button
+                      className="page-link"
+                      href="#"
+                      aria-label="Previous"
+                      onClick={this.handleMoveLeft}
+                    >
+                      <span aria-hidden="true">&laquo;</span>
+                    </button>
+                  </li>
+                );
 
-              if (page === RIGHT_PAGE) return (
-                <li key={index} className="page-item">
-                  <button className="page-link" href="#" aria-label="Next" onClick={this.handleMoveRight}>
-                    <span aria-hidden="true">&raquo;</span>
-                  </button>
-                </li>
-              );
+              if (page === RIGHT_PAGE)
+                return (
+                  <li key={index} className="page-item">
+                    <button
+                      className="page-link"
+                      href="#"
+                      aria-label="Next"
+                      onClick={this.handleMoveRight}
+                    >
+                      <span aria-hidden="true">&raquo;</span>
+                    </button>
+                  </li>
+                );
 
               return (
                 <li key={index} className="page-item">
-                  <button className={`page-link${ currentPage === page ? ' active' : ''}`} href="#" onClick={ this.handleClick(page) }>{ page }</button>
+                  <button
+                    className={`page-link${currentPage === page ? ' active' : ''}`}
+                    href="#"
+                    onClick={this.handleClick(page)}
+                  >
+                    {page}
+                  </button>
                 </li>
               );
-            })
-            }
+            })}
           </ul>
         </nav>
       </div>
@@ -126,4 +142,13 @@ class Pagination extends Component {
   }
 }
 
-export default Pagination;
+function mapStateToProps(state) {
+  return {
+    pageType: state.pageType,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { filterShow },
+)(Pagination);

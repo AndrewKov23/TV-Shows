@@ -1,41 +1,31 @@
-import { SEARCH_SHOW, GET_FILTER, ERROR, SORT_SHOW, LOAD_PAGES } from "../constants/action-types";
-import initialState from "../store/index"
+import { LOAD_SHOW, ERROR, LOAD_PAGES } from '../constants/action-types';
+import initialState from '../store/index';
 
 function rootReducer(state = initialState, action) {
-  
-  switch(action.type ){
-    case SEARCH_SHOW:
+  console.log(action)
+  switch (action.type) {
+    case LOAD_SHOW:
       return {
         ...state,
         articles: action.payload,
-        loading: false
+        pageType: action.pageType,
+        loading: false,
       };
-    case GET_FILTER:
+    case LOAD_PAGES:
       return {
         ...state,
-        articles: action.payload,
-        loading: false
-      };
-      case SORT_SHOW:
-      return {
-        ...state,
-        articles: action.payload,
+        totalPages: action.totalPages,
+        currentPage: action.currentPage,
       };
     case ERROR:
       return {
         ...state,
         loading: false,
         error: true,
-        articles: [] 
-      };
-    case LOAD_PAGES:
-      return {
-        ...state, 
-        totalPages: action.totalPages, 
-        currentPage: action.currentPage
+        articles: [],
       };
     default:
-     return state;
+      return state;
   }
 }
 

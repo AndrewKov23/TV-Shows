@@ -20,4 +20,4 @@ const FilterShowlist = ({ filterShow }) => {
   );
 };
 
-  export default connect(null,  {filterShow})(FilterShowlist);
+export default connect(null,  {filterShow})(FilterShowlist);
