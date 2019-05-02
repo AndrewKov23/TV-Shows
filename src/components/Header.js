@@ -1,15 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import './header.css'
-import Search from "../search";
-import Filter from "../filter-showlist";
-import SortForm from "../sort-form";
+import '../static/css/index.css';
+import Search from "./Search";
+import Filter from "./FilterShowlist";
+import SortForm from "./SortForm";
 
-class Header extends Component {
-  componentDidMount() {
-  }
-         
-  render() {
+const Header = () => {     
     return (
       <header className="header-container">
       <h1 className="header-caption">TV-shows</h1>
@@ -22,7 +18,6 @@ class Header extends Component {
         </div>
       </header>
     );
-  }
 }
 
 export default Header;        

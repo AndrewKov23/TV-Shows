@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux"; 
 
-import './filter-showlist.css'
-import { filterShow } from '../../actions/actions';
-
+import '../static/css/index.css';
+import { filterShow } from '../actions/actions';
 
 const FilterShowlist = ({ filterShow }) => {
 

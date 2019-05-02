@@ -3,7 +3,6 @@ import rootReducer from '../reducers/index';
 import { forbiddenWordsMiddleware } from '../middleware';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-// import { GET_FILTER } from "../constants/action-types";
 
 const initialState = {
   articles: [],

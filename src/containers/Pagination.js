@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './pagination.css';
+import '../static/css/index.css';
 
-import { filterShow } from '../../actions/actions';
+import { filterShow } from '../actions/actions';
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';

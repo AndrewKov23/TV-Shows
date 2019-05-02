@@ -1,9 +1,8 @@
 import React from "react";
 
-import './search.css'
+import '../static/css/index.css';
 import { connect } from "react-redux"; 
-import { searchShow } from "../../actions/actions";
-
+import { searchShow } from "../actions/actions";
 
 const Search = ({ searchShow }) => {
 let input
@@ -32,7 +31,6 @@ let input
           </form>
        </div>
     );
-    
   }
 
-  export default connect(null, { searchShow })(Search);
+export default connect(null, { searchShow })(Search);

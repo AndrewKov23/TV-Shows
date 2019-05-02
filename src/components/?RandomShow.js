@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import ShowsService from '../../shows-services';
-import './random-show.css';
-import Spinner from '../spinner';
+import '../static/css/index.css';
+import Spinner from './Spinner';
 
 export default class RandomShow extends Component {
     
@@ -14,7 +14,6 @@ export default class RandomShow extends Component {
             show: {},
             loading: true,
         }
-        
     }
 
     componentDidMount() {
@@ -32,21 +31,16 @@ export default class RandomShow extends Component {
     
     updateShows = () => {
         const idShow = Math.floor(Math.random()*200) + 3
-        //Math.floor(Math.random()*345) + 3
         this.showsService
             .getRandomShows(idShow)
             .then(this.onShowLoaded)
             .catch(this.onError)
     };
 
-
     render() {
-    
         const { show, loading } = this.state;
         const spinner = loading ? <Spinner /> : null
         const content = !loading ? <RandomShowView show={show}/> : null
-
-        
 
         return(
             <div className="random-show">

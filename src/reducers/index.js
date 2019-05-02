@@ -1,4 +1,4 @@
-import { LOAD_SHOW, ERROR, LOAD_PAGES } from '../constants/action-types';
+import { LOAD_SHOW, ERROR, LOAD_PAGES, IS_LOADING } from '../constants/action-types';
 import initialState from '../store/index';
 
 function rootReducer(state = initialState, action) {
@@ -23,7 +23,12 @@ function rootReducer(state = initialState, action) {
         loading: false,
         error: true,
         articles: [],
-      };
+      }; 
+    case IS_LOADING:
+      return {
+        ...state,
+        loading: true,
+      }; 
     default:
       return state;
   }
