@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/TV-Shows/static/js/runtime~main.ac21190e.js"
   },
   {
-    "revision": "0f0e45f9987236898916",
-    "url": "/TV-Shows/static/js/main.3f40064c.chunk.js"
+    "revision": "137e326de1c0018cd18f",
+    "url": "/TV-Shows/static/js/main.54250d48.chunk.js"
   },
   {
     "revision": "77e610cf0523c41c985f",
     "url": "/TV-Shows/static/js/2.5472c00a.chunk.js"
   },
   {
-    "revision": "0f0e45f9987236898916",
-    "url": "/TV-Shows/static/css/main.d0d0d91d.chunk.css"
+    "revision": "137e326de1c0018cd18f",
+    "url": "/TV-Shows/static/css/main.f2eef07d.chunk.css"
   },
   {
-    "revision": "7f7357257c7752cb48415a1f26646115",
+    "revision": "a1677ea83119cc75c8798f5c86bf2516",
     "url": "/TV-Shows/index.html"
   }
 ];

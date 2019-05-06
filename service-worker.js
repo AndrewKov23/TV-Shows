@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/TV-Shows/precache-manifest.745f9e9dec30eded024390daf909ae62.js"
+  "/TV-Shows/precache-manifest.377d274b067b0b7d7acca9f09523f9e5.js"
 );
 
 workbox.clientsClaim();
