@@ -35,7 +35,7 @@ class ShowlistRender extends Component {
         year={show.first_air_date}
         overview= {
           show.overview.length === 0
-          ? 'No overview for this show. Maybe it will be later    \'¯\\_(ツ)_/¯'
+          ? 'No overview for this show. Maybe it will be later    ¯\\_(ツ)_/¯'
           : show.overview}
         
       />

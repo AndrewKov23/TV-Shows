@@ -3,19 +3,21 @@ import Select from 'react-select';
 import { connect } from "react-redux";
 import { sortShow } from '../actions/actions'
 
-const SortForm = ({ sortShow, world, worldState }) => {
+const SortForm = ({ sortShow }) => {
 
-    const handleClick = (world) => {
+    const handleClickSort = (world) => {
         sortShow(world.value)
+        console.log(world.title)
     };
 
     return(
         <div className="select-class">
         <label htmlFor="Sort">Sort</label>
         <Select
+            className='ironSelect'
             name="Sort"
-            value={world}
-            onChange={handleClick}
+            // value={world}
+            onChange={handleClickSort}
             options={[
                 {
                 value: "first_air_date.desc",
