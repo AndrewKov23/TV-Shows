@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 This _project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+=======
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+>>>>>>> 13c3713a9ae6bd77a0f48b174f490193fea16b2a
 ## Available Scripts
 
 In the project directory, you can run:

@@ -14,7 +14,10 @@ const Header = () => {
             <Filter />
           </div>
             <Search />
-            <SortForm />
+            
+        </div>
+        <div>
+          <SortForm />
         </div>
       </header>
     );

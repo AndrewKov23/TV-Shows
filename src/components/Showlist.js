@@ -1,5 +1,4 @@
 import React from 'react';
-// import ShowlistRender from '../containers/ShowlistRender';
 
 const Showlist = ({showsLists, pagination}) => {
   return(

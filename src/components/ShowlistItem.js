@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-
-
 const ShowlistItem = ({ key, number, name, poster, 
     year, overview }) => {
     return (
@@ -25,4 +23,4 @@ function mapStateToProps(state) {
     };
 }
 
-  export default connect( mapStateToProps, null )(ShowlistItem);
+export default connect( mapStateToProps, null )(ShowlistItem);

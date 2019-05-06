@@ -40,7 +40,6 @@ class ShowlistRender extends Component {
         
       />
     });
-    // console.log('showsLists ', showsLists);
     return(
       <Showlist showsLists={showsLists} pagination={pagination} />
     )
